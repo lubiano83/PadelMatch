@@ -4,13 +4,18 @@ import PlayerModel from '../../models/player.model.js';
 
 export async function GET() {
     try {
-      await connectDB();
-      const players = await PlayerModel.find();
-      return NextResponse.json(players);
+        await connectDB();
+        
+        // Obtener los jugadores ordenados por categoría (ascendente)
+        const players = await PlayerModel.find().sort({ category: 1 });
+
+        return NextResponse.json(players);
     } catch (error) {
-      return NextResponse.json({ error: 'Error al obtener las canchas' }, { status: 500 });
+        console.error('Error al obtener los jugadores:', error);
+        return NextResponse.json({ error: 'Error al obtener los jugadores' }, { status: 500 });
     }
 }
+
 
 export async function POST(req) {
   try {

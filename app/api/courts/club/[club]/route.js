@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { connectDB } from '../../../config/mongoose.config';
-import CourtModel from '../../../models/court.model.js';
+import { connectDB } from '../../../../config/mongoose.config.js';
+import CourtModel from '../../../../models/court.model.js';
 
 export async function GET(request, { params }) {
   try {

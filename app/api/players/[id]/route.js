@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { connectDB } from '../../../config/mongoose.config';
+import { connectDB } from '../../../config/mongoose.config.js';
 import PlayerModel from '../../../models/player.model.js';
 
 export async function GET(req, { params }) {

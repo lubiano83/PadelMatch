@@ -6,6 +6,7 @@ const playerSchema = new mongoose.Schema({
         required: [true, 'Player email is required'],
         unique: true,
         trim: true,
+        match: /.+\@.+\..+/ // Validación básica de correo electrónico
     },
     image: {
         type: String,
@@ -43,6 +44,7 @@ const playerSchema = new mongoose.Schema({
     phone: {
         type: String,
         required: true,
+        match: /^[0-9]{9,15}$/ // Número de teléfono con longitud entre 9 y 15
     }
 }, {
     timestamps: true,
